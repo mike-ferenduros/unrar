@@ -72,29 +72,6 @@ Pod::Spec.new do |s|
 
   s.public_header_files = "dll.hpp"
 
-
-  # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Link your library with frameworks, or libraries. Libraries do not include
-  #  the lib prefix of their name.
-  #
-
-  # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
-
-  # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
-
-
-  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If your library depends on compiler flags you can set them in the xcconfig hash
-  #  where they will only apply to your library. If you depend on other Podspecs
-  #  you can include multiple dependencies to ensure it works.
-
-  # s.requires_arc = true
-
-  s.pod_target_xcconfig = { "OTHER_CPLUSPLUSFLAGS" => "$(inherited) -DRARDLL" }
-  # s.dependency "JSONKit", "~> 1.4"
+  s.pod_target_xcconfig = { "OTHER_CPLUSPLUSFLAGS" => "$(inherited) -Wno-logical-op-parentheses -Wno-conversion  -Wno-parentheses -Wno-unused-function -Wno-unused-variable -Wno-conditional-uninitialized -Wno-switch -DRARDLL" }
 
 end
