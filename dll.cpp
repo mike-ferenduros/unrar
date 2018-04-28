@@ -2,6 +2,15 @@
 
 static int RarErrorToDll(RAR_EXIT ErrCode);
 
+struct RARIO rario = {
+    .open = NULL,
+    .close = NULL,
+    .read = NULL,
+    .write = NULL,
+    .lseek = NULL,
+    .fileLength = NULL
+};
+
 struct DataSet
 {
   CommandData Cmd;

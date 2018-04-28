@@ -7,8 +7,8 @@
   typedef HANDLE FileHandle;
   #define FILE_BAD_HANDLE INVALID_HANDLE_VALUE
 #elif defined(FILE_USE_OPEN)
-  typedef off_t FileHandle;
-  #define FILE_BAD_HANDLE -1
+  typedef void* FileHandle;
+  #define FILE_BAD_HANDLE NULL
 #else
   typedef FILE* FileHandle;
   #define FILE_BAD_HANDLE NULL
@@ -115,7 +115,7 @@ class File
     int GetFD()
     {
 #ifdef FILE_USE_OPEN
-      return hFile;
+      return -1;
 #else
       return fileno(hFile);
 #endif

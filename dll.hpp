@@ -136,6 +136,18 @@ typedef int (CALLBACK *UNRARCALLBACK)(UINT msg,LPARAM UserData,LPARAM P1,LPARAM 
 #define ROADF_ENCHEADERS   0x0080
 #define ROADF_FIRSTVOLUME  0x0100
 
+struct RARIO
+{
+    void* (*open)(const char *, int, int);
+    int (*close)(void*);
+    ssize_t (*read)(void*, void *, size_t);
+    ssize_t (*write)(void*, const void *, size_t);
+    off_t (*lseek)(void*, off_t, int);
+    off_t (*fileLength)(void*);
+};
+
+extern struct RARIO rario;
+
 struct RAROpenArchiveDataEx
 {
   char         *ArcName;
